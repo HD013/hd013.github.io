@@ -18,3 +18,7 @@ Learn more about me and sample some of my work. Reach out if something catches y
 ## Resume
 <br>
 
+### Connect with me:
+<br>
+
+[LinkedIn](https://www.linkedin.com/in/d-henders/)
