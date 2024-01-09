@@ -14,12 +14,43 @@ Learn more about me and sample some of my work. Reach out if something catches y
 ## Selected Projects
 <br>
 
-## Experience
+
+## Publications
+<br>
+
+#### Including imprecisely georeferenced specimens improves accuracy of species distribution models and estimates of niche breadth
+
+https://onlinelibrary.wiley.com/doi/abs/10.1111/geb.13628
+
+<br>
+
+#### Effect of forest succession and microenvironmental variables on the abundance of two wandering spider species (Araneae: Ctenidae) in a montane tropical forest
+
+[https://onlinelibrary.wiley.com/doi/abs/10.1111/geb.13628](https://bioone.org/journals/the-journal-of-arachnology/volume-48/issue-2/0161-8202-48.2.140/Effect-of-forest-succession-and-microenvironmental-variables-on-the-abundance/10.1636/0161-8202-48.2.140.short)
+
+<br>
+
+#### Tree functional traits as predictors of microburst-associated treefalls in tropical wet forests
+
+[https://onlinelibrary.wiley.com/doi/abs/10.1111/geb.13628](https://www.researchgate.net/publication/339331583_Tree_functional_traits_as_predictors_of_microburst-associated_treefalls_in_tropical_wet_forests)
+
+<br>
+
+### ***in review* - preprint:**
+
+#### Ecological metabolomics of tropical tree communities across an elevational gradient: Implications for chemically-mediated biotic interactions and species diversity
+
+[https://onlinelibrary.wiley.com/doi/abs/10.1111/geb.13628](https://www.biorxiv.org/content/10.1101/2023.10.04.560880v1)
+
 <br>
 
 ## Resume
 <br>
 
 ### Connect with me:
-[LinkedIn](https://www.linkedin.com/in/d-henders/)
+[LinkedIn](https://www.linkedin.com/in/d-henders/)  - View my LinkedIn profile
+<br>
+
+[gmail](dhenders013@gmail.com)  - Click here to email me
+ 
 <br>
