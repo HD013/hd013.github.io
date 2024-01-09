@@ -1,3 +1,4 @@
+
 # hd013.github.io
 # Thanks for stopping by!
 > I bring a blend of technical expertise in data science and biology, along with a proven track record of collaborative research and consulting. My ability to uncover valuable insights from complex data sets and my proficiency in analytical tools like Python, R, SQL, and GIS are directly applicable to any analytical requirements of data analysis at any level. Furthermore, my experience in documenting and reporting scientific findings prepares me to explain any key findings clearly and concisely. I bring several work experiences and qualities that make me a strong fit for anything that requires the resourceful use of data.
