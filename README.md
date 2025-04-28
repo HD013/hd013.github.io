@@ -51,6 +51,6 @@ https://onlinelibrary.wiley.com/doi/abs/10.1111/geb.13628
 [LinkedIn](https://www.linkedin.com/in/d-henders/)  - View my LinkedIn profile
 <br>
 
-[gmail](dhenders013@gmail.com)  - Click here to email me
+[email](dhenders013@proton.me)  - Click here to email me
  
 <br>
