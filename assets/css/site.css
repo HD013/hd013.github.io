@@ -214,7 +214,7 @@ ul.posts .date { color: var(--faint); font-size: .85rem; display: block; }
 
 .contact-list { list-style: none; margin: 0; padding: 0; }
 .contact-list li { margin: 0 0 .45rem; color: var(--muted); }
-.contact-list li span { color: var(--faint); display: inline-block; min-width: 110px; }
+.contact-list li span { color: var(--faint); display: inline-block; min-width: 110px; padding-right: .6rem; }
 
 /* ---- Footer ---- */
 
