@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>The demo is not the evaluation | David Henderson</title>
+	<meta name="description" content="On judging agents, and the gap between one impressive run and a system you can trust" />
+	<link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body>
+
+	<div class="wrap">
+		<article class="post">
+			<a class="back" href="index.html">← All writing</a>
+			<h1>The demo is not the evaluation</h1>
+			<p class="post-subtitle">On judging agents, and the gap between one impressive run and a system you can trust</p>
+			<p class="post-meta">August 25, 2026</p>
+
+			<p>An agent demo is an existence proof. It shows that the system can produce a good outcome at least once. That counts for something, and also for very little, because the question that matters for anything you intend to rely on is not "can it" but "how often, under what conditions, and how badly does it fail when it fails." A demo answers the first question and, by construction, says nothing about the rest. The single run you're shown is the one worth showing. Everything you need to know lives in the runs you weren't shown.</p>
+
+			<p>Agentic systems widen this gap compared with a simple model, because so much more can go wrong. An agent plans, calls tools, reflects on its own output and sometimes coordinates several sub-agents toward a goal. Every one of those steps is another place for an error to enter, and errors compound along a trajectory, so a small misstep early becomes a confident wrong conclusion later. More autonomy means more surface area for failure. It also means more variance, because a system making many stochastic decisions in sequence won't do the same thing twice. The demo hides both. It shows you a trajectory where the missteps happened not to occur and the variance happened to break your way.</p>
+
+			<p>Two traps are specific to agents, and both are easy to fall into because the careful alternative takes more work. The first is grading the trajectory instead of the outcome. When a system takes a long sequence of steps, it's tempting to judge whether the steps looked sensible rather than whether the end state was right, partly because the steps are visible and legible while the outcome is sometimes hard to score. But sensible-looking steps that arrive at the wrong place are still a failure, and occasionally the right answer is reached by an ugly path. The outcome is what you care about. The trajectory matters mainly for what a good outcome can't reveal, like cost, safety and side effects. Judging the trajectory because it's easier to see is measuring the convenient proxy again.</p>
+
+			<p>The second trap is the single run. Because agents are stochastic, one execution is a single draw from a distribution of possible behaviors, and a demo is the most favorable draw someone found. Treating it as representative is the purest form of substituting an anecdote for data. The unit of evaluation isn't the best run, or any one run. It's the distribution over many runs of the same task: the success rate, its variance and the shape of the failures. A system that succeeds nine times in ten and a system that succeeds once in ten can produce the identical impressive demo. Only repetition tells them apart, and repetition is boring enough that it gets skipped.</p>
+
+			<p>I saw the field-wide version of this in my review of agentic educational AI. A majority of studies evaluated their systems with no human learners at all, using simulated students or judging whether the system's behavior looked reasonable, rather than measuring outcomes for real people across enough runs to separate signal from luck. The autonomy that makes these systems interesting is the same property that makes them inconvenient to evaluate, and inconvenience reliably predicts what gets left out. The result is a literature rich in demonstrations and thin in the evidence that would tell you whether a demonstration was typical.</p>
+
+			<p>Doing it properly isn't conceptually hard, only laborious. Fix a set of tasks in advance, chosen to cover the range you care about rather than the cases the system handles well. Run each task many times, so you're measuring a distribution and not an anecdote. Score outcomes against a real baseline, not against the system's own earlier version. Report the success rate, the variance and the cost, and name the failure modes rather than averaging them into a single number. Push on the edges deliberately, with adversarial and out-of-distribution cases, because once a system is deployed its floor matters more than its ceiling. And keep two questions separate: capability, whether the system can ever do the task, and reliability, whether it does it dependably. A demo speaks to capability. Deployment depends on reliability.</p>
+
+			<p>The reason to insist on all this isn't pedantry. A demo and a deployment answer different questions, and the difference is the whole risk. The impressive run tells you the ceiling, the best the system can do when everything aligns. What you need before trusting it with anything that matters is the floor, and how often the system visits it. That's the information a demo is designed to leave out, because a demo is chosen for being the moment the floor never showed.</p>
+
+			<p class="faint">David Henderson, Ph.D.</p>
+		</article>
+	</div>
+
+	<footer class="site">
+		<div class="wrap">
+			<p>© David Henderson · <a href="../index.html">Home</a></p>
+		</div>
+	</footer>
+
+</body>
+</html>

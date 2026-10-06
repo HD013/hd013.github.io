@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Measuring the right thing | David Henderson</title>
+	<meta name="description" content="On construct validity, the question that comes before all the others" />
+	<link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body>
+
+	<div class="wrap">
+		<article class="post">
+			<a class="back" href="index.html">← All writing</a>
+			<h1>Measuring the right thing</h1>
+			<p class="post-subtitle">On construct validity, the question that comes before all the others</p>
+			<p class="post-meta">September 29, 2026</p>
+
+			<p>Every failure I've written about in this series is a special case of one deeper problem, and it's time to state that problem plainly. Before you ask whether a measurement is accurate, you have to ask whether it's measuring the right thing at all. A perfectly precise measurement of the wrong quantity is still worthless, and worse than worthless when the precision makes you trust it. Validity comes before reliability. You can measure a proxy to four decimal places, and if the proxy isn't faithful to what you care about, all you've bought is a confident wrong answer.</p>
+
+			<p>Measurement theory has a name for this: construct validity. The construct is what you care about, which is usually abstract and hard to observe: whether a student learned, whether a strategy has a durable edge, where a species can live, whether an answer is helpful and correct. The measure is the concrete stand-in you can record: a test score, a backtest return, an accuracy statistic built from occurrence records, a rating handed out by another model. Construct validity is the degree to which the measure captures the construct. It's the most important property of any evaluation, and the one most often simply assumed.</p>
+
+			<p>I find it clarifying to see the other failures as instances of this one. A measure you optimize against loses its grip on the construct, because optimization exploits the slack between them. A baseline you skip leaves you unable to tell whether the number reflects the construct or the situation around it. A leak inflates the number without touching the construct at all. Each of these is a specific way the measure and the construct come apart. But even when you've avoided every one of them, a prior question remains that none of them can answer for you: was this measure ever a faithful stand-in for what I meant? If it wasn't, precision only sharpens the error.</p>
+
+			<p>The examples run through every field I've worked in. In species distribution modeling, the construct is where a species can live, and the measure is where people recorded seeing it. Those aren't the same, and the difference isn't noise. It's the systematic imprint of where people go. A model can be an excellent measure of the second while telling you almost nothing true about the first. In finance, the construct is a persistent edge and the measure is a historical return, and an entire industry runs on forgetting that the second can be large while the first is zero. In the evaluation of educational AI, the construct is that a learner understood something, and the common measure is that the system's output looked good, or that another model scored it highly. In my review of that literature, only about a quarter of studies measured the construct at all. The majority measured a proxy and reported it as if it were the outcome.</p>
+
+			<p>What makes this so easy to get wrong is that the proxy is almost always chosen for reasons that have nothing to do with its fidelity. We measure what's cheap to measure, what logs cleanly, what a rater can rate quickly, what an API returns. Ease of measurement is real and understandable, and it says nothing about how well the measure tracks the construct. So the convenient proxy performs a substitution. It swaps the question you meant to ask for a nearby question you happen to be able to answer, and because the two are related, the swap is nearly invisible. You set out to measure learning and end up measuring fluency, and nothing in the number tells you the exchange took place.</p>
+
+			<p>Checking construct validity isn't exotic. It mostly comes down to asking the plain question out loud before the machinery starts. State the construct explicitly, in advance, so it can't be redefined later by whatever you found easiest to record. Name the reasoning that links the measure to the construct: why would this indicator move when the outcome I care about moves, and when might it move without it? Prefer measures that others have already validated against the construct, and rely on your own only when you have to. When you're forced to use a proxy, say so, and pitch the claim at the level of the proxy rather than the construct, so that "the output scored well" doesn't become "the students learned." And look hard for the case that separates them, a situation where the measure is high and the construct is low, then ask whether your instrument could tell the difference. If it couldn't, you don't have a measure of the construct. You have a measure of something else that happens to travel alongside it, until the day it doesn't.</p>
+
+			<p>This is the thread under all of it. Baselines, leakage, Goodhart's law and model judges are all about the distance between a number and the reality it's meant to stand for, and construct validity is that distance, named and taken seriously. The most important question you can ask about any result is also the least technical one: is this measuring what I think it's measuring? Ask it first, because if the answer is no, nothing downstream will save you. And if you never ask, the machinery will hand you a beautifully precise answer to a question you didn't mean to pose.</p>
+
+			<p class="faint">David Henderson, Ph.D.</p>
+		</article>
+	</div>
+
+	<footer class="site">
+		<div class="wrap">
+			<p>© David Henderson · <a href="../index.html">Home</a></p>
+		</div>
+	</footer>
+
+</body>
+</html>

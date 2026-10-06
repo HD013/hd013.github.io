@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>When does a signal actually have an edge? | David Henderson</title>
+	<meta name="description" content="On regime-dependence and careful backtesting" />
+	<link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body>
+
+	<div class="wrap">
+		<article class="post">
+			<a class="back" href="index.html">← All writing</a>
+			<h1>When does a signal actually have an edge?</h1>
+			<p class="post-subtitle">On regime-dependence and careful backtesting</p>
+			<p class="post-meta">August 18, 2026</p>
+
+			<p>It is trivially easy to produce a backtest that looks fantastic and means nothing. Point enough modeling effort at enough historical market data and you will get a beautiful equity curve, smooth, upward and confidence-inspiring, and most of the time it will be an artifact of the search that produced it. The hard part of working with financial time series isn't generating a promising result. It's learning to distrust your own promising results long enough to find out whether they're real.</p>
+
+			<p>This is the same problem I've written about in other domains, in perhaps its purest and most expensive form. A model will give you an answer no matter what, the tooling makes that answer look authoritative, and the world won't correct you until you've put money behind it. So before believing anything, it helps to know the specific ways a backtest fabricates an edge.</p>
+
+			<p>The most common is overfitting through repeated search. If you try a hundred variations of a signal and report the one that backtested best, you haven't found an edge. You've found the luckiest draw from a hundred tries, and its historical performance tells you almost nothing about its future. The more configurations you test without saying so, the more the best one reflects selection rather than signal. Then there's leakage: information that wouldn't have been available at decision time slipping into the features, so the model is peeking at the future it's supposed to predict. And there are survivorship and similar sampling effects, where the very composition of the historical data flatters the result. Each of these produces a backtest that looks sound and isn't, and none of them announces itself.</p>
+
+			<p>The first real discipline against this is walk-forward validation. Train only on the past, test only on a stretch of future the model never saw, then slide the window forward and repeat across the whole history. It's the markets version of the rule that you never evaluate on the data you trained on. It's a substantial improvement, and it's still not a guarantee. It tests how the approach would have held up across past futures, which is the best evidence available but not the same as the actual future. Do it, and don't over-trust it.</p>
+
+			<p>The deeper issue, and the one I think gets underweighted, is that a single performance number usually misleads by averaging. A signal almost never has a uniform edge. It works in some conditions and is noise or worse in others, and a single aggregate metric averaged across all of history smears those apart into one flattering figure. The right unit of analysis isn't "does this work" but "where does this work." Markets move through regimes that are calm and turbulent, trending and range-bound, liquid and stressed, and a signal's behavior can invert completely from one to another. Report the average and you've hidden the most important fact about your model. Report the breakdown by regime and you can see what you have: a real edge concentrated somewhere specific, or a mirage that depends entirely on a handful of unusual periods.</p>
+
+			<p>That last possibility deserves a closer look, because it's where good-looking results most often go to die. The conditions in which a signal performs most impressively are frequently the rarest ones, the turbulent stretches, the crises, the unusual periods. So the headline number you'd most want to lead with often rests on the fewest observations, which makes it the number you should trust least. A spectacular result over a small slice of unusual history is weak evidence made to look strong. The temptation is to feature it. The better move is to state exactly how thin the sample under it is, and to treat it as a hypothesis rather than a finding.</p>
+
+			<p>So the way I try to report this kind of work runs close to the opposite of the instinct. Lead with where the model fails or does nothing, because that's where the truth usually is and where a reader can calibrate. Break performance out by regime instead of collapsing it. Be explicit about how many observations sit under each claim. And treat the aggregate figure as the number most likely to be hiding something, not the headline. None of this makes the result look better. It makes it look <em>true</em>, which is a different and more useful property, especially before any capital is involved.</p>
+
+			<p>There's a humility at the end of all this that I've made my peace with. Even a clean walk-forward result, carefully broken out by regime, describes how a strategy would have navigated the regimes that have already happened. The future is free to produce a regime that resembles none of them. And markets adapt to edges that get exploited, so a real signal can decay precisely because it was real. That's no reason to skip the rigor, only a reason to hold the conclusion loosely even after doing everything right.</p>
+
+			<p>Markets are one more domain where the system won't tell you you're wrong until it's costly, and the discipline that protects you is the one I keep finding everywhere. Distrust the convenient aggregate, go looking for where your model breaks, and never confuse a backtest, which is an estimate of the past, with evidence about the future. The estimate is useful. Mistaking it for a measurement is how people lose money.</p>
+
+			<p class="faint">David Henderson, Ph.D.</p>
+		</article>
+	</div>
+
+	<footer class="site">
+		<div class="wrap">
+			<p>© David Henderson · <a href="../index.html">Home</a></p>
+		</div>
+	</footer>
+
+</body>
+</html>

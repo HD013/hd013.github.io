@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Leakage: the quietest way to fool yourself | David Henderson</title>
+	<meta name="description" content="When information from the answer sneaks into the question" />
+	<link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body>
+
+	<div class="wrap">
+		<article class="post">
+			<a class="back" href="index.html">← All writing</a>
+			<h1>Leakage: the quietest way to fool yourself</h1>
+			<p class="post-subtitle">When information from the answer sneaks into the question</p>
+			<p class="post-meta">September 8, 2026</p>
+
+			<p>Of all the ways to get a result that's impressive and wrong, leakage is the hardest to hear coming, because nothing about it looks like a mistake. The code runs. The metrics improve. No error is thrown, no warning appears, no diagnostic turns red. The model simply performs better than it has any right to, and unless you go looking for the reason, you'll happily write the number down. Leakage happens when information that wouldn't be available at the moment of decision, or information from the very data you're meant to be tested on, finds a path into the model. The model isn't smart. It's peeking, and the peeking is invisible.</p>
+
+			<p>The canonical version in time-series work is lookahead: letting the model see, during training or feature construction, something it couldn't have known when it was supposed to act. A feature computed over the full history, future included. A normalization fit across the whole dataset before splitting. A label that encodes tomorrow in today's row. Each of these lets the model read a little of the answer it's being asked to predict, and each produces a backtest that looks sound and isn't. The giveaway is performance that's too good, but "too good" is a judgment you only make if you already suspect the trap. That's why so many leaked results survive all the way to the point where money or a deployment is on the line and reality finally does the correcting.</p>
+
+			<p>Ecology gave me the version I trust myself least on, because it hides inside the step that feels most responsible: splitting your data into training and test sets. In much of machine learning you can split at random and move on. In anything spatial you can't, because points near each other aren't independent. A training point and a test point a kilometer apart share climate, soil and the same patch of world. Split such data at random and the test set isn't really held out. It sits next door to the training set, and your accuracy inflates because the model is being scored on places it has effectively already seen. The fix is to split by geography, holding out whole regions, so the test measures transfer to somewhere new rather than proximity to somewhere familiar. The lesson generalizes well beyond ecology. A random split is only valid when the rows are truly independent, and rows are less independent than they look far more often than we admit.</p>
+
+			<p>The same failure has now arrived in the evaluation of language models, at a scale that should give anyone reading benchmark scores pause. A model trained on a large fraction of the internet may well have seen, during pretraining, the very test it's later evaluated on. When that happens, a high score measures memorization, not capability. The model isn't solving the exam; it's recalling one it already read. "It passed the bar" or "it topped the benchmark" means something entirely different depending on whether the bar exam and the benchmark were in the training data, and often no one can say for certain that they weren't. This is leakage in its most consequential form. The contamination can't be detected from the score itself, it always pushes performance up, and it points in exactly the direction the field wants to believe.</p>
+
+			<p>What makes leakage the hardest of these failures to guard against is that it aligns perfectly with your hopes. An ordinary error is as likely to hurt your result as help it. Leakage almost only helps, because it's information about the target flowing toward the model, and more of that always looks like more skill. So it never trips the alarm a disappointing number would. You have to catch it structurally, before you ever see the result, by reconstructing the boundary of what was knowable at decision time and refusing to let anything cross it. Split before you touch the data, not after. Fit every preprocessing step on the training portion alone. Use the split your problem demands (temporal for anything that unfolds in time, spatial for anything embedded in space, grouped for anything with clusters) rather than the random split that's merely convenient. And keep something back that the entire pipeline has never seen, so that when everything else has been subtly compromised, you still have one clean look left.</p>
+
+			<p>The uncomfortable truth is that leakage is self-deception with a clean audit trail. Everything is documented, everything reproduces, and what's being reproduced is a mirage. The only real defense is a habit of suspicion aimed at your own good results, and one question asked relentlessly at every step: would I have known this at the moment I needed to know it? Most of the time the answer is yes and you move on. The times the answer is no are the times you were about to fool yourself, and they don't announce themselves any other way.</p>
+
+			<p class="faint">David Henderson, Ph.D.</p>
+		</article>
+	</div>
+
+	<footer class="site">
+		<div class="wrap">
+			<p>© David Henderson · <a href="../index.html">Home</a></p>
+		</div>
+	</footer>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>When a measure becomes a target | David Henderson</title>
+	<meta name="description" content="On Goodhart&#x27;s law, benchmarks, and grading your own homework" />
+	<link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body>
+
+	<div class="wrap">
+		<article class="post">
+			<a class="back" href="index.html">← All writing</a>
+			<h1>When a measure becomes a target</h1>
+			<p class="post-subtitle">On Goodhart's law, benchmarks, and grading your own homework</p>
+			<p class="post-meta">September 15, 2026</p>
+
+			<p>There's a law that everyone who builds or evaluates anything eventually meets, usually the hard way. Goodhart's law: when a measure becomes a target, it ceases to be a good measure. Once you start optimizing for a number, the number begins to come apart from what it was standing in for, because you'll find every way to raise it, including all the ways that don't involve improving what you care about. The metric was a proxy. Optimization pours into the gap between the proxy and the goal, and the gap is always larger than it looks.</p>
+
+			<p>This is inevitable rather than merely common, because no measurable proxy is ever a perfect stand-in for what you're after. "Learning" is not the same as "test score," but the score is what you can log. "A good answer" is not the same as "an answer that looks good," but appearance is what a rater can rate. "A durable trading edge" is not the same as "a high backtest," but the backtest is what you can compute. Each proxy has slack in it, some region where the number can move without the underlying quality moving with it, and the full force of optimization finds that slack and settles into it. You end up with a system that's superb at the measurement and mediocre at the purpose of the measurement, and the more effort you spend optimizing, the wider the gap grows.</p>
+
+			<p>I've watched a version of this happen in my own work on financial signals, and I want to name it carefully, because it doesn't feel like cheating while you're doing it. If you try a hundred variants of a strategy and keep the one with the best backtest, you haven't optimized a strategy. You've optimized a search against a metric, and the winner is largely the luckiest draw rather than the best idea. The backtest score became the target the moment you started selecting on it, and it stopped measuring edge and started measuring how hard you looked. Nothing about the beautiful equity curve tells you which of the two you're holding. Only the discipline you imposed before searching, a stretch of held-out history the search never touched, can tell you that.</p>
+
+			<p>The same trap has become structural in the evaluation of AI systems, in two forms. The first is the benchmark. A benchmark is useful exactly as long as no one is optimizing for it. Once it becomes what everyone tunes toward, scores climb while the capability they were meant to track stops climbing with them, until the benchmark is saturated, gamed or contaminated and a new one has to be built. The second form is more intimate, and I've written about it before: using one model to grade another, then tuning your system to please the grader. Once you optimize against a judge, the judge stops measuring quality and starts measuring your skill at satisfying the judge, which is a different and far less valuable property. It's grading your own homework with a marker you also trained.</p>
+
+			<p>What all of these share is that the failure is produced by success. The number going up isn't incidental to the problem; it's the mechanism. That's what makes Goodhart's law so hard to defend against, because every instinct you have, and every incentive around you, points at making the number go up. The defenses mostly come down to refusing to let a single metric carry more weight than a proxy can bear. Keep a held-out measure you never optimize against, and treat any metric you have been optimizing as compromised by definition. Separate the number you improve from the number you judge by, so the measure steering development is never the one certifying it. Refresh and rotate your benchmarks, and assume a static target will eventually be gamed whether or not anyone means to game it. And watch for the moment a diagnostic becomes an objective, because that's the moment it stops telling you the truth.</p>
+
+			<p>Underneath the tactics is a habit of mind that's easy to state and hard to keep: remember that the metric was never the point. The point was what the metric approximated, the student who understands, the answer that's right, the edge that persists. The number was only ever a convenient shadow of it. Optimization is extraordinarily good at chasing the shadow. Most of the work is holding on to the difference between the shadow and the substance, especially once the shadow starts moving in the direction you hoped for. That's when you're most pleased with yourself, and therefore when you're least protected.</p>
+
+			<p class="faint">David Henderson, Ph.D.</p>
+		</article>
+	</div>
+
+	<footer class="site">
+		<div class="wrap">
+			<p>© David Henderson · <a href="../index.html">Home</a></p>
+		</div>
+	</footer>
+
+</body>
+</html>

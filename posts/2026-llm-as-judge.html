@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>LLM-as-judge: where it's fine, and where it breaks | David Henderson</title>
+	<meta name="description" content="On using one model to grade another" />
+	<link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body>
+
+	<div class="wrap">
+		<article class="post">
+			<a class="back" href="index.html">← All writing</a>
+			<h1>LLM-as-judge: where it's fine, and where it breaks</h1>
+			<p class="post-subtitle">On using one model to grade another</p>
+			<p class="post-meta">August 11, 2026</p>
+
+			<p>If you build anything with language models, you end up needing to evaluate their output at a scale no human panel can match, and the obvious tool is sitting right there: use another model to grade it. Show a strong model two responses and ask which is better, or hand it a rubric and ask it to score. "LLM-as-judge" has become the default evaluation method for generative systems, for understandable reasons. It's fast, cheap and endlessly scalable. I've used it, and I'll keep using it. But it fails in specific, predictable ways, and the failures are easy to miss because the method is so convenient. So it's important to be clear about which jobs it can do.</p>
+
+			<p>Start with where it's fine. A model judge is useful for <em>relative</em> comparisons during development: is version B better than version A, did this change make quality worse, is the output on topic and in the right format? It gives you a usable signal far faster than humans can, and it stays consistent across thousands of comparisons in a way human raters struggle to match. As a triage layer that catches obvious failures and flags items for human review, it earns its keep. And on tasks where someone has checked that the judge's scores correlate with human judgment, it can stand in for that judgment within the range where the correlation was shown. None of that is controversial. The trouble starts when the same tool is used for jobs it can't do, and nothing in its output warns you that you've crossed the line.</p>
+
+			<p>The first and deepest problem is that a model judge scores <em>plausibility</em>, not <em>truth</em>. It rates how good an answer looks, which matches how good the answer is only when looking right and being right happen to coincide. It can't verify a factual claim it doesn't already know, can't check a calculation it can't perform, and can't tell you whether code runs without running it. What it reliably rewards is confident, fluent, well-structured text, so a wrong answer delivered with poise often beats a correct answer delivered awkwardly. If your outputs can be verified some other way, by execution, ground truth or a unit test, then using a judge to assess correctness means choosing the weaker instrument on purpose.</p>
+
+			<p>Then there are the documented biases, which are consistent enough to plan around. Judges show position bias, systematically favoring whichever response came first or second. They show verbosity bias, preferring longer answers that look thorough. They show self-preference, rating outputs from their own model family more highly, which makes a model an especially poor judge of itself. You can reduce these by randomizing order, controlling for length and never letting a model grade its own work, but only if you remember they're there.</p>
+
+			<p>The subtlest failure is one I keep coming back to in every domain I've worked in: correlated errors. A judge model and the model it's grading were trained on overlapping data and share many of the same blind spots. So the judge is most likely to miss the kinds of mistakes the generator is most likely to make. The two agree on a confident falsehood, and the evaluation sails through. It's the same structural trap I described in ecology, where a model learns the geography of where botanists happened to look rather than where a species lives, and the fit statistics look fine the whole time. When your check shares the failure modes of the thing it's checking, a clean score is not the reassurance it appears to be.</p>
+
+			<p>Two more, quickly. A model judge is not a fixed instrument. Scores drift with prompt phrasing, rubric wording and model version, so "we evaluated with a strong model" pins down a method about as well as "we used a thermometer" pins down a temperature. And once you start tuning your system to score well with the judge, Goodhart's law takes over. The judge stops measuring quality and starts measuring how good you've become at pleasing the judge, which is a different and less useful property.</p>
+
+			<p>So how do you use it without fooling yourself? Treat it as an estimate to be validated, not a measurement to be trusted. Before relying on a judge for a given task, check its scores against human judgment or ground truth on that task, and report how well they agreed. Use it for relative and triage signals, not as the final word on correctness, and wherever the output can be verified directly, verify it directly. Control for the known biases by design. Pin model versions and re-validate when they change. Keep a held-out, human-checked set that you never optimize against, so you can tell when your judge and reality have drifted apart. And match the judge's competence to the task. On expert problems, the judge may be less capable than the system it's grading and unable to tell good from bad, however confidently it scores.</p>
+
+			<p>This connects directly to a systematic review I completed on how agentic educational AI gets evaluated. Across 129 studies, 92.2% measured the quality of the system's output, an assessment that frequently relies on a model judge, while only 23.3% measured whether anyone learned anything. The review proposes a low-cost reporting standard, the AEER checklist, so that studies state plainly what their evaluation does and doesn't show, including which judge was used and whether it was checked against people. (<a href="https://doi.org/10.35542/osf.io/ek9wp_v2">Preprint on EdArXiv</a>.) The method isn't the problem. Mistaking an estimate for a measurement is the problem, and a model judge is a useful estimate dressed as a measurement. Most of the skill lies in knowing, at any given moment, which of the two you have.</p>
+
+			<p class="faint">David Henderson, Ph.D.</p>
+		</article>
+	</div>
+
+	<footer class="site">
+		<div class="wrap">
+			<p>© David Henderson · <a href="../index.html">Home</a></p>
+		</div>
+	</footer>
+
+</body>
+</html>

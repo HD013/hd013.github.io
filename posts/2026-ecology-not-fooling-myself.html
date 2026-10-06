@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>What ecology taught me about not fooling myself | David Henderson</title>
+	<meta name="description" content="From species distributions to model validation" />
+	<link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body>
+
+	<div class="wrap">
+		<article class="post">
+			<a class="back" href="index.html">← All writing</a>
+			<h1>What ecology taught me about not fooling myself</h1>
+			<p class="post-subtitle">From species distributions to model validation</p>
+			<p class="post-meta">August 4, 2026</p>
+
+			<p>Richard Feynman had a line about science that I think about constantly: "The first principle is that you must not fool yourself, and you are the easiest person to fool." I learned how true that is not in machine learning but in ecology, which is one of the most demanding training grounds there is for the discipline of doubting your own results.</p>
+
+			<p>The reason is structural. An ecologist studying a forest or a species range can't rerun the experiment. You get one noisy, biased, badly incomplete sample of a system you don't control and can't repeat, and from it you're supposed to say something true about how nature works. Worse, the tools are powerful enough to give you an answer no matter what. A model will happily fit beautifully to data that means nothing. The danger isn't that you'll fail to find a result. It's that you'll find one, it'll look great, and it'll be an artifact of how you collected the data.</p>
+
+			<p>Species distribution modeling makes this concrete. You're trying to predict where a species can live from records of where people happened to observe it. But people observe near roads, near trailheads, near field stations, near where other botanists have already gone. Hand a model those records uncritically and it will learn the geography of human convenience and present it as biology, and the fit statistics will look terrific the whole time. Nothing in the model's confidence tells you it has learned the wrong lesson. You have to know to ask.</p>
+
+			<p>One of the more useful lessons I took from that work was counterintuitive. In a paper I coauthored, we found that <em>including</em> imprecisely located specimens, the messy records most people throw out for being too vague, improved model accuracy and our estimates of where species could live. The tidy instinct to keep only the clean data was making the models worse. The point wasn't "messy data is good." It was that intuitions about what helps have to be tested, not assumed, because the assumption that feels responsible can be the one fooling you.</p>
+
+			<p>What ecology drills into you, then, is a set of habits that have nothing to do with ecology specifically. Distrust performance measured on the same data you trained on. Ask what you would see if your effect were entirely fake, and check whether you'd be able to tell. Report the conditions where your model fails instead of averaging them into a single flattering number. These are survival skills in a field where nature won't correct you, and they transfer almost without modification.</p>
+
+			<p>When I started building a financial time-series model, the first tool I reached for wasn't a fancier algorithm. It was walk-forward validation: train only on the past, test only on a future the model never saw, slide forward, repeat. And the most informative part of that project is not the headline performance but the breakdown showing the specific regimes where the signal stops working. An average across all conditions would have looked more impressive and told me less. It's the same instinct as with the species maps. The aggregate number is where self-deception hides, and the failure modes are where the truth is.</p>
+
+			<p>It's the same disease I wrote about in my last post, in a domain that looks completely different. When the field evaluates an AI tutor by whether its output looks good, or by asking another language model to score that output, it makes exactly the species-distribution mistake. It measures the convenient proxy and trusts the fit, instead of measuring what it cares about and stress-testing whether the result could be an artifact. Good-looking output is the equivalent of records clustered around the trailhead. It's real data about something. It's just not data about the question.</p>
+
+			<p>I sometimes get asked how an ecologist ends up working on AI evaluation and machine learning, as if it were a swerve. It doesn't feel like one to me. The domains change (forests, markets, learning systems), but the central problem is the same in each. You have a powerful model, a flawed and partial slice of reality, and a strong incentive to believe a result that might not be real. The work is mostly about building the checks that catch you before reality does.</p>
+
+			<p>That's the part of the job I find most interesting, and it's why I think the cross-domain background is an advantage rather than a detour. The hardest version of the not-fooling-yourself problem is the one where the system won't tell you when you're wrong, and AI is increasingly full of that kind of system. The instinct to go looking for where your model fails, and to trust that more than where it succeeds, is, I'd argue, the most transferable skill there is.</p>
+
+			<p class="faint">David Henderson, Ph.D.</p>
+		</article>
+	</div>
+
+	<footer class="site">
+		<div class="wrap">
+			<p>© David Henderson · <a href="../index.html">Home</a></p>
+		</div>
+	</footer>
+
+</body>
+</html>

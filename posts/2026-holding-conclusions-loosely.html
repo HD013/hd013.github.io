@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Holding conclusions loosely | David Henderson</title>
+	<meta name="description" content="On distribution shift, and why even a result you earned fairly can stop being true" />
+	<link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body>
+
+	<div class="wrap">
+		<article class="post">
+			<a class="back" href="index.html">← All writing</a>
+			<h1>Holding conclusions loosely</h1>
+			<p class="post-subtitle">On distribution shift, and why even a result you earned fairly can stop being true</p>
+			<p class="post-meta">October 6, 2026</p>
+
+			<p>Suppose you did everything right. You chose the right baseline and beat it. You kept information from the future out of your features and split your data so nothing leaked. You measured what you cared about, not a convenient stand-in, and you reported where the result failed instead of averaging the failures away. You're still not entitled to believe your conclusion will hold, and this is the last discipline, the one that outlives all the others. A conclusion is always a statement about the conditions that produced it, and the world is under no obligation to keep producing those conditions. Rigor doesn't buy certainty. It buys a well-supported claim about a slice of reality that doesn't have to hold still, and usually won't.</p>
+
+			<p>The technical name for the problem is distribution shift: the data you'll meet in the future comes from a different distribution than the data you learned and tested on. Every model, however carefully validated, is validated on a slice of the world, and its guarantees are only as wide as that slice. Step outside it and the relationships you learned are no longer promised to hold. Nothing warns you at the boundary. The model keeps producing confident outputs that simply stop being right, and the decline can be gradual enough that you attribute it to noise until it's undeniable.</p>
+
+			<p>The examples are everywhere once you look. A backtest, even a clean walk-forward one broken out by regime, describes how a strategy would have navigated the regimes that already happened, and the future is free to bring a regime that resembles none of them. Markets also adapt, so an edge can decay because it was real and others found it. A species distribution model fit to today's climate describes where a species lives under the climate that trained it. Move the climate, and the learned relationships bend or break while the map stays confident about a world changing out from under it. A clinical model validated on one hospital's population can fail at another, not because it was ever wrong, but because the population moved. And an evaluation that was valid for one model version drifts when the model updates, because what you calibrated against is now slightly different.</p>
+
+			<p>It would be easy to read all this as a counsel of despair, and it's the opposite. The point of the rigor was never to purchase permanence. It was to earn a conclusion worth holding and to know its shape. A well-earned conclusion arrives with its conditions attached, and those conditions are what let you notice when the world has drifted away from them. Sloppy work gives you a conclusion with no stated scope, which feels more general and is in fact more dangerous, because you can't tell when it has expired. Stating the scope plainly isn't hedging. It's the instrument that tells you when your result has stopped applying, and without it you'll keep trusting a finding long after the conditions that made it true are gone.</p>
+
+			<p>So the discipline is to state the conditions under which your result holds as explicitly as the result itself, and to treat the conclusion as valid inside that slice and unproven outside it. Watch for decay: keep asking whether the world you're operating in still resembles the one you validated in, and re-check when it visibly drifts. Build the monitoring in from the start, because a model degrading under distribution shift looks, from the inside, exactly like a model that's fine. And hold the conclusion loosely enough that new evidence can move it, because eventually it will have to.</p>
+
+			<p>The humbling shape of all this is that even perfect work expires. A model is a compression of a slice of the past, pointed at a future that's free to differ, and no amount of care at build time changes the fact that the future gets a vote. The goal was never a permanent truth. It was a well-scoped, temporary one, held in full awareness that it's on loan and that the terms can be called. That isn't a flaw in the method; it's the most truthful statement the method can make. The discipline that starts as not fooling yourself about your results ends, naturally, as not fooling yourself about how long you get to keep them.</p>
+
+			<p class="faint">David Henderson, Ph.D.</p>
+		</article>
+	</div>
+
+	<footer class="site">
+		<div class="wrap">
+			<p>© David Henderson · <a href="../index.html">Home</a></p>
+		</div>
+	</footer>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>"We used GPT-5" is not a method | David Henderson</title>
+	<meta name="description" content="On what reproducibility means when the system is a prompt" />
+	<link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body>
+
+	<div class="wrap">
+		<article class="post">
+			<a class="back" href="index.html">← All writing</a>
+			<h1>"We used GPT-5" is not a method</h1>
+			<p class="post-subtitle">On what reproducibility means when the system is a prompt</p>
+			<p class="post-meta">September 22, 2026</p>
+
+			<p>A result you can't reproduce isn't yet a finding. It's a report of something that happened once, and it asks to be believed on trust. Reproducibility turns that report into a claim, because a claim is something another person can check independently, and checking is the whole mechanism by which a field learns anything durable. Far from a tidiness requirement bolted on at the end, reproducibility is the property that makes a result the kind of statement that can be true or false rather than merely told. And for systems built from language models, reproducibility has become harder than the field admits, for reasons specific to how these systems are made.</p>
+
+			<p>Start with what defines the intervention. For a prompt-based or agentic system, behavior is set by the prompts, the orchestration and control flow, the tools it can call, the base model and its exact version, decoding parameters like temperature and sampling, and whatever retrieval or memory surrounds it. Change any one of these and the result can change. So a line like "we used GPT-5" describes the system about as well as "we used a microscope" describes an experiment. It names one component out of many and stays silent on the ones that determine the behavior. It has the grammar of a method without the content of one.</p>
+
+			<p>Three obstacles here are new, and they compound. The first is that the prompt is the intervention, and the prompt often isn't released. In my review of agentic educational AI, only about half of studies released their prompts, and fewer than a fifth described their protocol fully enough to reproduce. When what defines the system is withheld, there's nothing to rebuild from, and the paper describes a system no one else can instantiate. The second obstacle is non-determinism. These models sample, so two runs of an identical setup can differ, which means a single reported number is one point from a distribution nobody characterized. Reproducibility here has to include reporting the spread across runs, not just a value, because the value alone isn't stable enough to check against. The third obstacle is the strangest: the model moves. A hosted model behind an endpoint can be updated, retuned or deprecated without notice, so "the same model" a year later may not be the same model at all. Even a careful replicator who does everything right can be defeated by a silent change on the vendor's side. The instrument can be swapped out from under a published result.</p>
+
+			<p>This matters more here than in most places because the stakes are climbing fast. These systems are being put into classrooms, clinics and workflows, and the claims made about them increasingly carry weight. An under-specified intervention behind a consequential claim is the very situation in which you most need to check the claim and are least equipped to. A field can tolerate loose reporting when nothing rides on the results. This field no longer qualifies, and every quarter it qualifies less.</p>
+
+			<p>The remedy is mostly unglamorous disclosure. Release the full prompts and scaffolding, the actual text rather than a paraphrase of the idea. Report the exact model, the version string, and the date and endpoint of access, so a reader at least knows what you were talking to and when. Report the decoding parameters, and set and report seeds wherever the interface allows. Run the evaluation several times and report the variation, so the number comes with its own error bar. Archive the pipeline and evaluation scripts rather than describing them. And state plainly what's outside your control, the possibility that the hosted model has changed, so a future reader knows which parts of your result could be reproduced and which depend on a snapshot that may be gone.</p>
+
+			<p>There's a limit here worth admitting, because pretending otherwise is its own kind of self-deception. Some of this can't be made fully reproducible, because you don't own the model and can't freeze it. The right response isn't to abandon reproducibility but to aim it at what's achievable: report enough that someone else can know exactly what you had, and when you had it, even if they can no longer obtain it. When the instrument itself is a moving target, disclosure is the achievable form of reproducibility. It draws a clear line between "I did something you can understand and situate" and "trust me, it worked." Silence erases that line.</p>
+
+			<p>So "we used GPT-5" is not a method. It's the absence of one, dressed in a method's vocabulary. A method is everything that would let another person stand where you stood and see what you saw, or, when the ground has shifted, at least know where you were standing. For these systems that takes more work than it used to, and it matters more, because the systems are so easy to run and so hard to pin down. Writing it all down is the boring act that separates a claim from a screenshot, and right now the field is producing a great many screenshots.</p>
+
+			<p class="faint">David Henderson, Ph.D.</p>
+		</article>
+	</div>
+
+	<footer class="site">
+		<div class="wrap">
+			<p>© David Henderson · <a href="../index.html">Home</a></p>
+		</div>
+	</footer>
+
+</body>
+</html>

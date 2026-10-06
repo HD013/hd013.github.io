@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>The comparison you didn't run | David Henderson</title>
+	<meta name="description" content="On baselines, and why a result means nothing without the right one" />
+	<link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body>
+
+	<div class="wrap">
+		<article class="post">
+			<a class="back" href="index.html">← All writing</a>
+			<h1>The comparison you didn't run</h1>
+			<p class="post-subtitle">On baselines, and why a result means nothing without the right one</p>
+			<p class="post-meta">September 1, 2026</p>
+
+			<p>A performance number on its own is not evidence of anything. "The model is 87% accurate." "The strategy returned 22% last year." "Students rated the tutor 4.6 out of 5." Each of these sounds like a finding, and none of them is one yet, because a number describing how well something did means nothing until you know what it did better than. A result becomes evidence only when you set it against a comparison, the counterfactual of what would have happened otherwise. Choose that comparison well and a modest number can be a real discovery. Choose it badly, or skip it, and a spectacular number can be worth nothing at all.</p>
+
+			<p>This is the part of the work that's easiest to weaken without anyone noticing, and weakening it almost always flatters the result. The failure comes in three versions. The first is having no comparison at all, reporting that a system "works" with nothing to work relative to, which isn't a claim that can be true or false. The second is the strawman, comparing against something so weak that beating it proves nothing anyone cares about. The third, and the subtlest, is comparing against the wrong thing, an alternative that answers a different question from the one you're implicitly claiming to have answered.</p>
+
+			<p>Ecology taught me to look for the missing baseline before anything else, because in that field the null model is often more informative than the elaborate one. A species distribution model can post an impressive accuracy score simply by learning that a species is common, or by capturing coarse geography that any trivial rule would also capture. Until you've compared it against a null (a prevalence-only guess, a random allocation, a model built on shuffled data), you don't know whether your machinery has found anything the null didn't. The number is real. It's just not evidence about what you built the model to study. The habit that comes out of this is simple and severe: assume your result is whatever the simplest possible alternative would also have produced, until you've shown otherwise.</p>
+
+			<p>In finance the point becomes concrete and expensive. Say a strategy returned 22% in a year when the index returned 26%. It didn't make money. It lost, relative to what you could have done with no strategy at all. "It was profitable" is the strawman baseline, cash under the mattress, against which almost anything looks good. The comparison that carries information is against the strongest option a reasonable person would have chosen instead: buy and hold, the risk-free rate, a simple benchmark portfolio, or the same exposure obtained more cheaply. A great deal of apparent edge evaporates once you insist on the right baseline, which is why the right baseline is the one most often left out.</p>
+
+			<p>The same structure runs straight through AI evaluation, where it's doing a lot of damage right now. When an agentic system is shown to beat a plain language model stripped of its scaffolding, that comparison establishes something narrow and real: the scaffolding changed the behavior. It doesn't establish that the system beats the alternative a practitioner would use, whether that's a person doing the task, an established method or a simpler tool that already works. In my systematic review of how agentic educational AI gets evaluated, the pattern was stark. Where a comparison existed at all, it was usually an ablation or a plain language model, and comparison against a human tutor or ordinary instruction was rare. Another 23.3% of studies reported no comparator at all. So the literature fills up with results that are true and beside the point. This configuration beats a weaker configuration, which tells you about engineering, not about whether anyone should use the system.</p>
+
+			<p>There's a further baseline that almost everyone forgets, and it catches the careful as well as the careless: the baseline of doing nothing new. People engage more with a system because it's new. They try harder when they know they're being studied. A tutor, a strategy or a tool can appear to work when what's working is novelty, attention, or the simple fact that someone spent time on the task. Unless the comparison holds those constant, an effect you attribute to your system may belong to the situation around it. Fields that run experiments on people have known this for a long time, and the knowledge is largely missing from the evaluation of systems that are increasingly deployed on people.</p>
+
+			<p>So the discipline is unglamorous and mostly a matter of refusing to skip a step. Name the comparison before you run the study, not after you see which one you win. Make it the strongest alternative a reasonable person would choose, not the weakest one you can beat. Report the difference, not the absolute number, because the absolute number is the part built to impress and the difference is the part that carries the information. And when you can't construct a fair comparison, say so and downgrade the claim, rather than letting an uncompared number stand in for evidence it can't provide.</p>
+
+			<p>The question is never "does it work." A system works relative to something, for someone, instead of some alternative, and the useful form of the question is "compared to what." The comparison you leave out isn't a detail you rounded off. It's usually the exact test the result would have failed, which is why it went missing in the first place.</p>
+
+			<p class="faint">David Henderson, Ph.D.</p>
+		</article>
+	</div>
+
+	<footer class="site">
+		<div class="wrap">
+			<p>© David Henderson · <a href="../index.html">Home</a></p>
+		</div>
+	</footer>
+
+</body>
+</html>

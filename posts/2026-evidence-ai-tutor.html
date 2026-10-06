@@ -3,27 +3,53 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>What counts as evidence that an AI tutor works? — David Henderson</title>
-	<meta name="description" content="Draft post by David Henderson on evaluation evidence for AI tutoring systems." />
+	<title>What counts as evidence that an AI tutor works? | David Henderson</title>
+	<meta name="description" content="Notes on evaluating agentic educational AI" />
 	<link rel="stylesheet" href="../assets/css/site.css" />
 </head>
 <body>
 
 	<div class="wrap">
 		<article class="post">
-			<a class="back" href="../index.html#writing">← Writing &amp; Notes</a>
+			<a class="back" href="index.html">← All writing</a>
 			<h1>What counts as evidence that an AI tutor works?</h1>
-			<p class="post-meta">Draft — coming soon</p>
+			<p class="post-subtitle">Notes on evaluating agentic educational AI</p>
+			<p class="post-meta">July 28, 2026</p>
 
-			<p class="muted">This post is in progress. It will draw on the AEER systematic review to lay out what distinguishes a real demonstration that an educational AI system helps people learn from a demonstration that it merely produces plausible output.</p>
+			<p>Since 2023, AI systems built to teach have multiplied faster than anyone can track. There are tutors that hold a conversation, agents that grade and give feedback, "teachable" agents that students instruct in order to learn, and tools that draft lessons for teachers. Most of them are impressive to use. Far fewer come with credible evidence that the people on the other side of the screen learned more than they would have otherwise.</p>
 
-			<p class="faint">— David Henderson</p>
+			<p>That gap, between <em>a system that performs well</em> and <em>a system that helps someone learn</em>, is what I've spent recent months trying to characterize, and it's easy to miss for a specific reason.</p>
+
+			<p>The most common way these systems get evaluated is by looking at what the system produced. Did the tutor's explanation look correct? Was the generated feedback fluent and on topic? Increasingly, that judgment is handed to another language model, an approach called "LLM-as-judge," which rates the output for quality. This is fast, cheap and scales beautifully. It is also not evidence of learning. It tells you the system can produce plausible educational <em>artifacts</em>, which is a claim about the system, not about the student.</p>
+
+			<p>The slippage is subtle because the proxy sounds so reasonable. Of course a good explanation should help someone learn. But "should" is doing enormous work there. Whether it does depends on the learner, the task, the comparison and what you measure, and a judge model scoring output can see none of those. A tutor that produces beautiful explanations and a tutor that produces beautiful explanations <em>which students then understand and retain</em> look identical under output-based evaluation. Only one of them is worth deploying.</p>
+
+			<p>Three other patterns compound this. Samples are often small (a few dozen users, sometimes fewer), which is enough for a demo but not enough to detect a real effect against the noise of how differently people learn. Comparison conditions are frequently missing or weak. A system is shown to "work" with no control at all, or against a deliberately impoverished baseline, so you can't tell whether the AI helped or whether <em>any</em> attention would have. And a striking number of studies have no grounding in learning theory. They give no account of <em>what</em> is supposed to change (understanding, transfer, retention, motivation) or why this intervention would change it. Without that, you can't even say what a positive result would mean.</p>
+
+			<p>Agentic systems make this harder, not easier. Once a system can plan, call tools, reflect or coordinate across multiple agents, the number of places it can go wrong without anyone noticing multiplies. So does the temptation to evaluate the <em>trajectory</em> (did the agent take sensible-looking steps?) instead of the <em>outcome</em> (did the student end up better off?). A more autonomous system needs more careful measurement, but the autonomy is exactly what makes careful measurement inconvenient.</p>
+
+			<p>So what would good evidence look like? Nothing exotic. It's mostly the ordinary discipline other applied fields already expect:</p>
+
+			<ul>
+				<li>An outcome named in advance, tied to a theory of how learning happens, and measured with an instrument that has some claim to validity, rather than a stand-in chosen because it was easy to log.</li>
+				<li>A comparison condition strong enough that a positive result can be attributed to the system rather than to novelty, attention, or the simple fact that the student spent time on task.</li>
+				<li>A sample large enough, and an analysis careful enough, to separate a real effect from noise.</li>
+				<li>Enough reported detail (prompts, model versions, configurations, data) that someone else could rerun the work. "We used GPT-4" is not a method.</li>
+			</ul>
+
+			<p>None of these is a high bar on its own. The problem is that they're applied inconsistently, so the literature as a whole is hard to trust even where individual systems may be excellent. That's a coordination problem, and coordination problems tend to get solved by a shared standard rather than by everyone independently resolving to be more rigorous.</p>
+
+			<p>That's the aim of the work I've been doing: a systematic review of how agentic educational AI is evaluated, coded against a common rubric covering study design, outcome constructs, measurement validity, theoretical grounding, reproducibility and oversight. It is synthesized into a reporting checklist authors could use to state plainly what they did and what their evidence supports. The point isn't to raise the cost of publishing. It's to make claims legible, so a reader can tell the difference between "this produced good output in a demo" and "this helped people learn, measured carefully, and here's how you'd check."</p>
+
+			<p>The review is now posted as a working manuscript, and I'll write about what the evidence base looks like in a later post. For now the point is narrower, and I think it comes before any findings. In education especially, the question is never whether an AI system <em>can</em> do something impressive. It's whether we have good reason to believe it helped, and too often the answer is that we measured the wrong thing.</p>
+
+			<p class="faint">David Henderson, Ph.D.</p>
 		</article>
 	</div>
 
 	<footer class="site">
 		<div class="wrap">
-			<p>© David Henderson. <a href="../index.html">Home</a></p>
+			<p>© David Henderson · <a href="../index.html">Home</a></p>
 		</div>
 	</footer>
 
